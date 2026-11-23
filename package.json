@@ -1,0 +1,16 @@
+{
+  "name": "yimmi-kambio-admin",
+  "version": "1.3.0",
+  "description": "Panel administrativo de tasas e historial en tiempo real para Yimmi Kambio",
+  "private": true,
+  "scripts": {
+    "cap:sync": "npx cap sync android"
+  },
+  "dependencies": {
+    "@capacitor/android": "^6.1.2",
+    "@capacitor/core": "^6.1.2"
+  },
+  "devDependencies": {
+    "@capacitor/cli": "^6.1.2"
+  }
+}
