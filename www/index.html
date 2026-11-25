@@ -1,266 +1,277 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" class="dark">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
-    <title>Yimmi Kambio Admin | yimmi-kambio-v2</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            darkMode: 'class',
-            theme: {
-                extend: {
-                    fontFamily: {
-                        sans: ['Outfit', 'sans-serif'],
-                        mono: ['JetBrains Mono', 'monospace']
-                    }
-                }
-            }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <meta name="theme-color" content="#080b18">
+  <title>Yimmi Kambio Admin · Control Center</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Outfit', 'sans-serif'],
+            mono: ['JetBrains Mono', 'monospace']
+          }
         }
-    </script>
-    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;700;800&family=Outfit:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        html, body {
-            margin: 0;
-            padding: 0;
-            min-height: 100%;
-            min-height: 100dvh;
-            font-family: 'Outfit', sans-serif;
-            background:
-                radial-gradient(ellipse 80% 50% at 15% -5%, rgba(168, 85, 247, 0.16), transparent 55%),
-                radial-gradient(ellipse 75% 50% at 88% 5%, rgba(59, 130, 246, 0.16), transparent 55%),
-                #f1f5f9;
-            color: #0f172a;
-            -webkit-tap-highlight-color: transparent;
-        }
-        html.dark, html.dark body {
-            background:
-                radial-gradient(ellipse 80% 50% at 15% -5%, rgba(168, 85, 247, 0.22), transparent 55%),
-                radial-gradient(ellipse 75% 50% at 88% 5%, rgba(59, 130, 246, 0.20), transparent 55%),
-                #060811;
-            color: #f8fafc;
-        }
-        .font-mono {
-            font-family: 'JetBrains Mono', monospace;
-            font-variant-numeric: tabular-nums;
-        }
-        .admin-shell {
-            width: 100%;
-            max-width: 520px;
-            min-height: 100vh;
-            min-height: 100dvh;
-            margin: 0 auto;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-        }
-        .neon-card {
-            background: rgba(255, 255, 255, 0.9);
-            backdrop-filter: blur(18px);
-            border: 1px solid rgba(148, 163, 184, 0.35);
-            box-shadow: 0 14px 34px -16px rgba(79, 70, 229, 0.14);
-        }
-        html.dark .neon-card {
-            background: rgba(15, 20, 36, 0.88);
-            border: 1px solid rgba(168, 85, 247, 0.28);
-            box-shadow: 0 16px 38px -16px rgba(0, 0, 0, 0.75), 0 0 22px -8px rgba(168, 85, 247, 0.25);
-        }
-        .neon-input {
-            background: #f8fafc;
-            border: 1px solid rgba(148, 163, 184, 0.45);
-            transition: border-color 0.2s ease, box-shadow 0.2s ease;
-        }
-        .neon-input:focus {
-            outline: none;
-            border-color: #8b5cf6;
-            box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.2);
-        }
-        html.dark .neon-input {
-            background: #090c15;
-            border: 1px solid rgba(148, 163, 184, 0.22);
-            color: #f8fafc;
-        }
-        html.dark .neon-input:focus {
-            border-color: #a855f7;
-            box-shadow: 0 0 0 3px rgba(168, 85, 247, 0.28);
-        }
-        .neon-btn {
-            background: linear-gradient(135deg, #2563eb 0%, #7c3aed 55%, #c026d3 100%);
-            box-shadow: 0 10px 24px -8px rgba(124, 58, 237, 0.5);
-            transition: transform 0.15s ease, filter 0.15s ease, opacity 0.15s ease;
-        }
-        .neon-btn:hover:not(:disabled) {
-            filter: brightness(1.06);
-        }
-        .neon-btn:active:not(:disabled) {
-            transform: scale(0.985);
-        }
-        .neon-btn:disabled {
-            opacity: 0.6;
-            cursor: not-allowed;
-        }
-        input[type=number]::-webkit-inner-spin-button,
-        input[type=number]::-webkit-outer-spin-button { -webkit-appearance: none; margin: 0; }
-    </style>
+      }
+    };
+  </script>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;700;800&family=Outfit:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #eef2ff; --surface: rgba(255,255,255,.82); --surface-solid:#fff;
+      --text:#111827; --muted:#64748b; --line:rgba(100,116,139,.2);
+      --field:#f8fafc; --shadow:0 22px 70px rgba(50,60,120,.12);
+      --accent:#6d5dfc; --accent2:#0ea5e9; --glow:rgba(109,93,252,.18);
+    }
+    html.dark {
+      color-scheme: dark;
+      --bg:#070a16; --surface:rgba(14,19,39,.78); --surface-solid:#10162b;
+      --text:#f8fafc; --muted:#94a3b8; --line:rgba(148,163,184,.16);
+      --field:rgba(4,8,22,.72); --shadow:0 24px 80px rgba(0,0,0,.38);
+      --accent:#9b8cff; --accent2:#38bdf8; --glow:rgba(139,116,255,.22);
+    }
+    * { box-sizing:border-box; }
+    html { scroll-behavior:smooth; }
+    body {
+      margin:0; min-height:100vh; min-height:100dvh; color:var(--text);
+      font-family:'Outfit',sans-serif; background:var(--bg);
+      background-image:
+        radial-gradient(ellipse 70% 38% at 8% 0%,rgba(124,92,255,.22),transparent 65%),
+        radial-gradient(ellipse 60% 42% at 100% 8%,rgba(14,165,233,.16),transparent 62%),
+        linear-gradient(145deg,transparent 45%,rgba(168,85,247,.045));
+      -webkit-tap-highlight-color:transparent;
+    }
+    body:before {
+      content:""; position:fixed; inset:0; pointer-events:none; opacity:.16;
+      background-image:linear-gradient(rgba(148,163,184,.08) 1px,transparent 1px),linear-gradient(90deg,rgba(148,163,184,.08) 1px,transparent 1px);
+      background-size:34px 34px; mask-image:linear-gradient(to bottom,black,transparent 80%);
+    }
+    .app-shell { position:relative; width:min(100%,760px); margin:0 auto; padding:16px 14px 34px; }
+    .glass {
+      background:var(--surface); border:1px solid var(--line); backdrop-filter:blur(22px);
+      -webkit-backdrop-filter:blur(22px); box-shadow:var(--shadow);
+    }
+    .hero {
+      position:relative; overflow:hidden; border-radius:28px; padding:20px;
+      background:linear-gradient(125deg,rgba(91,75,230,.96),rgba(89,74,207,.88) 48%,rgba(14,165,233,.82));
+      color:white; box-shadow:0 24px 55px rgba(77,70,229,.28);
+    }
+    .hero:after { content:""; position:absolute; width:230px;height:230px;border:1px solid rgba(255,255,255,.2);border-radius:50%;right:-85px;top:-125px;box-shadow:0 0 0 24px rgba(255,255,255,.05),0 0 0 50px rgba(255,255,255,.035); }
+    .hero-orb { position:absolute; width:120px;height:120px;border-radius:50%;right:65px;bottom:-90px;background:rgba(255,255,255,.12);filter:blur(2px); }
+    .brand-mark { width:48px;height:48px;border-radius:16px;background:white;padding:5px;display:grid;place-items:center;box-shadow:0 8px 25px rgba(15,23,42,.18); }
+    .brand-mark img { width:100%;height:100%;object-fit:contain; }
+    .eyebrow { font:800 10px 'JetBrains Mono',monospace;letter-spacing:.16em;text-transform:uppercase;opacity:.76; }
+    .hero-title { font-size:clamp(23px,6vw,32px);line-height:1.05;font-weight:900;letter-spacing:-.04em; }
+    .pill { display:inline-flex;align-items:center;gap:7px;border:1px solid rgba(255,255,255,.25);background:rgba(255,255,255,.13);border-radius:999px;padding:7px 10px;font:700 10px 'JetBrains Mono',monospace; }
+    .live-dot { width:7px;height:7px;border-radius:50%;background:#86efac;box-shadow:0 0 12px #86efac; }
+    .toolbar { display:flex;align-items:center;justify-content:space-between;gap:10px;margin:14px 2px 18px; }
+    .nav-chip { border:1px solid var(--line);background:var(--surface);color:var(--muted);border-radius:14px;padding:9px 12px;font-size:11px;font-weight:800;white-space:nowrap; }
+    .nav-chip:active,.action-btn:active { transform:scale(.98); }
+    .section-title { display:flex;align-items:center;justify-content:space-between;gap:12px;margin:22px 2px 11px; }
+    .section-title h2 { font-size:15px;font-weight:900;letter-spacing:-.02em; }
+    .section-kicker { color:var(--muted);font:700 9px 'JetBrains Mono',monospace;letter-spacing:.12em;text-transform:uppercase; }
+    .metric-grid { display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:9px; }
+    .metric { border-radius:21px;padding:14px 11px;min-width:0; }
+    .metric-label { color:var(--muted);font:800 9px 'JetBrains Mono',monospace;letter-spacing:.08em; }
+    .metric-value { font:800 clamp(14px,4vw,19px) 'JetBrains Mono',monospace;letter-spacing:-.06em;margin-top:9px;overflow-wrap:anywhere; }
+    .metric-icon { width:27px;height:27px;border-radius:10px;display:grid;place-items:center;font-size:11px;margin-bottom:10px; }
+    .field-box,.input-box { width:100%;background:var(--field);border:1px solid var(--line);color:var(--text);border-radius:15px;transition:.2s; }
+    .input-box { padding:12px 13px; }
+    .input-box:focus { outline:none;border-color:var(--accent);box-shadow:0 0 0 3px var(--glow); }
+    .panel { border-radius:25px;padding:17px; }
+    .panel-heading { display:flex;align-items:center;gap:10px; }
+    .heading-icon { width:38px;height:38px;border-radius:13px;display:grid;place-items:center;background:linear-gradient(135deg,rgba(139,92,246,.2),rgba(14,165,233,.17));color:var(--accent); }
+    .label { display:block;font-size:11px;font-weight:800;margin-bottom:7px;color:var(--text); }
+    .hint { color:var(--muted);font-size:10px;line-height:1.5; }
+    .action-btn { border:0;border-radius:16px;padding:14px 16px;color:white;font-size:12px;font-weight:900;background:linear-gradient(110deg,#6555ed,#8b5cf6 52%,#0891b2);box-shadow:0 12px 28px rgba(99,102,241,.25);transition:transform .15s,filter .15s; }
+    .action-btn:disabled { opacity:.55; }
+    .secondary-btn { border:1px solid var(--line);background:var(--field);color:var(--text);border-radius:13px;padding:9px 11px;font-size:10px;font-weight:800; }
+    .status-card { border-radius:19px;padding:13px;display:flex;align-items:center;justify-content:space-between;gap:10px; }
+    .status-meta { color:var(--muted);font:700 9px 'JetBrains Mono',monospace;text-transform:uppercase;letter-spacing:.08em; }
+    .status-value { font-size:12px;font-weight:900;margin-top:4px; }
+    .info-strip { border:1px solid rgba(56,189,248,.2);background:rgba(14,165,233,.07);border-radius:17px;padding:12px;color:var(--muted);font-size:10px;line-height:1.55; }
+    .theme-toggle { width:40px;height:40px;border-radius:14px;border:1px solid rgba(255,255,255,.28);background:rgba(255,255,255,.14);color:white; }
+    .mono { font-family:'JetBrains Mono',monospace; }
+    .muted { color:var(--muted); }
+    #toastBox { z-index:1000; }
+    @media(max-width:390px){.app-shell{padding:11px 10px 28px}.hero{padding:17px}.metric{padding:11px 8px}.metric-label{font-size:8px}.panel{padding:14px}}
+  </style>
 </head>
 <body class="antialiased">
-    <!-- Toast -->
-    <div id="adminToast" class="fixed top-4 right-4 left-4 sm:left-auto z-50 hidden items-center gap-2 px-4 py-3 rounded-2xl bg-slate-950 text-white text-xs font-bold shadow-2xl border border-purple-500/40">
-        <i id="adminToastIcon" class="fa-solid fa-circle-check text-emerald-400 text-sm"></i>
-        <span id="adminToastMsg">Listo</span>
-    </div>
+  <div id="toastBox" class="fixed top-4 left-4 right-4 z-50 hidden items-center gap-2 px-4 py-3 rounded-2xl bg-slate-950 text-white text-xs font-bold shadow-2xl border border-violet-500/40">
+    <i id="toastIcon" class="fa-solid fa-circle-check text-emerald-400 text-sm"></i>
+    <span id="toastText">Listo</span>
+  </div>
 
-    <div class="admin-shell px-3.5 py-4 space-y-4">
-        <!-- Encabezado -->
-        <header class="neon-card rounded-2xl px-4 py-3 flex items-center justify-between gap-2">
-            <div class="flex items-center gap-2.5 min-w-0">
-                <div class="w-10 h-10 rounded-xl bg-white p-1 border border-purple-300/60 flex items-center justify-center shrink-0">
-                    <img src="https://i.postimg.cc/t4fJptrQ/BCV-20261120-041842-0000.png" alt="Logo Yimmi Kambio" class="w-full h-full object-contain bg-white">
-                </div>
-                <div class="min-w-0">
-                    <div class="flex items-center gap-1.5">
-                        <h1 class="text-sm sm:text-base font-black truncate">Yimmi Kambio Admin</h1>
-                        <span class="px-1.5 py-0.5 rounded-md bg-purple-500/15 border border-purple-400/40 text-purple-700 dark:text-purple-300 text-[10px] font-mono font-extrabold">v2</span>
-                    </div>
-                    <p class="text-[10px] font-mono text-slate-500 dark:text-slate-400 truncate">yimmi-kambio-v2-default-rtdb</p>
-                </div>
+  <div class="app-shell">
+    <header class="hero">
+      <div class="hero-orb"></div>
+      <div class="relative z-10 flex items-start justify-between gap-3">
+        <div class="flex items-center gap-3 min-w-0">
+          <div class="brand-mark">
+            <img src="https://i.postimg.cc/t4fJptrQ/BCV-20261120-041842-0000.png" alt="Logo Yimmi Kambio">
+          </div>
+          <div class="min-w-0">
+            <div class="eyebrow">Futuro Ahora · Control Center</div>
+            <h1 class="hero-title mt-1">Yimmi Kambio<br>Admin</h1>
+          </div>
+        </div>
+        <button type="button" onclick="toggleTemaAdmin()" class="theme-toggle shrink-0" title="Cambiar tema">
+          <i id="iconoTemaAdmin" class="fa-solid fa-sun"></i>
+        </button>
+      </div>
+      <div class="relative z-10 mt-5 flex flex-wrap items-center gap-2">
+        <span class="pill"><span class="live-dot"></span> PANEL ADMINISTRATIVO</span>
+        <span id="dbBadge" class="pill"><span class="w-2 h-2 rounded-full bg-amber-300"></span><span>SYNC</span></span>
+      </div>
+      <div class="relative z-10 mt-4 flex items-center justify-between gap-3">
+        <div>
+          <div class="eyebrow">Base de datos conectada</div>
+          <div class="mono text-[11px] font-bold mt-1">yimmi-kambio-v2-default-rtdb</div>
+        </div>
+        <div class="text-right">
+          <div class="eyebrow">Última lectura</div>
+          <div id="horaSyncAdmin" class="mono text-xs font-bold mt-1">--:--</div>
+        </div>
+      </div>
+    </header>
+
+    <nav class="toolbar overflow-x-auto" aria-label="Navegación rápida">
+      <button class="nav-chip" onclick="document.getElementById('resumen').scrollIntoView({behavior:'smooth'})"><i class="fa-solid fa-chart-pie mr-1.5"></i>Resumen</button>
+      <button class="nav-chip" onclick="document.getElementById('tasas').scrollIntoView({behavior:'smooth'})"><i class="fa-solid fa-sliders mr-1.5"></i>Tasas</button>
+      <button class="nav-chip" onclick="document.getElementById('historial').scrollIntoView({behavior:'smooth'})"><i class="fa-solid fa-clock-rotate-left mr-1.5"></i>Historial</button>
+    </nav>
+
+    <main>
+      <section id="resumen">
+        <div class="section-title">
+          <div><div class="section-kicker">Monitor en tiempo real</div><h2>Estado de las tasas</h2></div>
+          <span class="mono text-[9px] muted">VES · REFERENCIA</span>
+        </div>
+        <div class="metric-grid">
+          <article class="glass metric">
+            <div class="metric-icon text-sky-500 bg-sky-500/10"><i class="fa-solid fa-dollar-sign"></i></div>
+            <div class="metric-label">DÓLAR BCV</div>
+            <div id="actualBcv" class="metric-value">919,82</div>
+            <div class="hint mt-1">Bolívares</div>
+          </article>
+          <article class="glass metric">
+            <div class="metric-icon text-violet-500 bg-violet-500/10"><i class="fa-solid fa-euro-sign"></i></div>
+            <div class="metric-label">EURO BCV</div>
+            <div id="actualEur" class="metric-value">1.011,18</div>
+            <div class="hint mt-1">Bolívares</div>
+          </article>
+          <article class="glass metric">
+            <div class="metric-icon text-fuchsia-500 bg-fuchsia-500/10"><i class="fa-brands fa-bitcoin"></i></div>
+            <div class="metric-label">USDT</div>
+            <div id="actualUsdt" class="metric-value">1.076,91</div>
+            <div class="hint mt-1">Bolívares</div>
+          </article>
+        </div>
+        <div class="glass status-card mt-3">
+          <div><div class="status-meta">Fecha vigente en configuración</div><div id="actualFechaConfig" class="status-value mono">--</div></div>
+          <div class="text-right"><div class="status-meta">Fechas guardadas</div><div id="totalFechasHistorial" class="status-value mono">0</div></div>
+          <i class="fa-solid fa-wave-square text-xl text-violet-400"></i>
+        </div>
+      </section>
+
+      <section id="tasas" class="mt-6">
+        <div class="section-title">
+          <div><div class="section-kicker">Publicación centralizada</div><h2>Administrar tasas</h2></div>
+          <span class="text-[9px] font-extrabold text-violet-500 mono">EDITAR / PUBLICAR</span>
+        </div>
+        <form id="formSyncTasas" onsubmit="publicarTasasAdmin(event)" class="glass panel space-y-4">
+          <div class="panel-heading">
+            <div class="heading-icon"><i class="fa-solid fa-arrow-up-from-bracket"></i></div>
+            <div><h3 class="text-sm font-black">Nueva actualización</h3><p class="hint">Los cambios se guardan en Firebase.</p></div>
+            <button type="button" onclick="cargarTasasActualesForm()" class="secondary-btn ml-auto"><i class="fa-solid fa-rotate-left mr-1"></i>Actuales</button>
+          </div>
+
+          <div class="rounded-2xl p-3 border" style="border-color:var(--line);background:var(--field)">
+            <div class="flex items-center justify-between gap-2 mb-2">
+              <label for="fechaValorInput" class="label mb-0">Fecha valor</label>
+              <div class="flex gap-1.5">
+                <button type="button" onclick="fijarFechaRelativa(0)" class="secondary-btn">Hoy</button>
+                <button type="button" onclick="fijarFechaRelativa(1)" class="secondary-btn">Mañana</button>
+              </div>
             </div>
+            <input type="date" id="fechaValorInput" required class="input-box mono text-xs font-bold">
+            <label for="selectorFechaGuardada" class="label mt-3">Recuperar una fecha del historial</label>
+            <select id="selectorFechaGuardada" onchange="seleccionarFechaGuardada(this.value)" class="input-box mono text-xs font-bold">
+              <option value="">-- Seleccionar fecha guardada --</option>
+            </select>
+          </div>
 
-            <div class="flex items-center gap-1.5 shrink-0">
-                <span id="dbStatusBadge" class="inline-flex items-center gap-1 px-2 py-1 rounded-full bg-amber-500/15 border border-amber-400/40 text-amber-700 dark:text-amber-300 text-[10px] font-mono font-bold">
-                    <span class="w-1.5 h-1.5 rounded-full bg-amber-500"></span>
-                    <span>SYNC</span>
-                </span>
-                <button type="button" onclick="toggleDarkAdmin()" class="w-8 h-8 rounded-xl neon-input flex items-center justify-center text-xs cursor-pointer" title="Cambiar modo claro/oscuro">
-                    <i id="iconDarkAdmin" class="fa-solid fa-moon text-purple-600 dark:text-amber-300"></i>
-                </button>
+          <div class="grid grid-cols-1 gap-3">
+            <div>
+              <label for="campoBcv" class="label"><i class="fa-solid fa-dollar-sign text-sky-500 mr-1"></i>Dólar BCV (tasaBcv)</label>
+              <div class="relative"><input type="text" inputmode="decimal" id="campoBcv" required placeholder="919.82" class="input-box mono text-lg font-extrabold pr-14"><span class="absolute right-4 top-1/2 -translate-y-1/2 text-xs font-bold muted">Bs.</span></div>
             </div>
-        </header>
+            <div>
+              <label for="campoEur" class="label"><i class="fa-solid fa-euro-sign text-violet-500 mr-1"></i>Euro BCV (tasaEuroBcv)</label>
+              <div class="relative"><input type="text" inputmode="decimal" id="campoEur" required placeholder="1011.18" class="input-box mono text-lg font-extrabold pr-14"><span class="absolute right-4 top-1/2 -translate-y-1/2 text-xs font-bold muted">Bs.</span></div>
+            </div>
+            <div>
+              <label for="campoUsdt" class="label"><i class="fa-brands fa-bitcoin text-fuchsia-500 mr-1"></i>USDT (tasaUsdt)</label>
+              <div class="relative"><input type="text" inputmode="decimal" id="campoUsdt" required placeholder="1076.91" class="input-box mono text-lg font-extrabold pr-14"><span class="absolute right-4 top-1/2 -translate-y-1/2 text-xs font-bold muted">Bs.</span></div>
+            </div>
+          </div>
 
-        <!-- Contenido Principal -->
-        <main class="flex-1 space-y-4">
-            <!-- Resumen Actual en Firebase -->
-            <section class="neon-card rounded-3xl p-4 space-y-3">
-                <div class="flex items-center justify-between text-[11px]">
-                    <span class="font-mono font-extrabold uppercase tracking-wider text-purple-700 dark:text-purple-300">Tasas actuales en Firebase</span>
-                    <span id="adminLastSync" class="font-mono text-slate-500 dark:text-slate-400">--:--</span>
-                </div>
+          <div class="space-y-3 rounded-2xl p-3 border" style="border-color:var(--line)">
+            <label class="flex items-start gap-3 text-xs font-semibold cursor-pointer">
+              <input type="checkbox" id="chkHistorial" checked class="mt-0.5 w-4 h-4 accent-violet-600">
+              <span>Guardar en el historial de tasas <span class="block hint mt-0.5">Registra USD, EUR y USDT en la fecha elegida.</span></span>
+            </label>
+            <div class="h-px" style="background:var(--line)"></div>
+            <label class="flex items-start gap-3 text-xs font-semibold cursor-pointer">
+              <input type="checkbox" id="chkConfig" checked class="mt-0.5 w-4 h-4 accent-sky-600">
+              <span>Actualizar configuración principal <span class="block hint mt-0.5">Publica los valores vigentes que ve la aplicación.</span></span>
+            </label>
+          </div>
 
-                <div class="grid grid-cols-3 gap-2 font-mono text-center">
-                    <div class="neon-input rounded-2xl p-2.5">
-                        <div class="text-[10px] font-sans font-extrabold text-blue-700 dark:text-blue-300">DÓLAR BCV</div>
-                        <div id="liveTasaBcv" class="text-sm font-black mt-0.5">919,82</div>
-                    </div>
-                    <div class="neon-input rounded-2xl p-2.5">
-                        <div class="text-[10px] font-sans font-extrabold text-purple-700 dark:text-purple-300">EURO BCV</div>
-                        <div id="liveTasaEur" class="text-sm font-black mt-0.5">1.011,18</div>
-                    </div>
-                    <div class="neon-input rounded-2xl p-2.5">
-                        <div class="text-[10px] font-sans font-extrabold text-pink-700 dark:text-pink-300">USDT</div>
-                        <div id="liveTasaUsdt" class="text-sm font-black mt-0.5">1.076,91</div>
-                    </div>
-                </div>
+          <button type="submit" id="btnPublicar" class="action-btn w-full flex items-center justify-center gap-2">
+            <i id="iconoPublicar" class="fa-solid fa-cloud-arrow-up"></i>
+            <span id="textoPublicar">Guardar y sincronizar ahora</span>
+          </button>
+          <p class="hint text-center"><i class="fa-solid fa-shield-halved mr-1 text-emerald-500"></i>Revisa los importes y la fecha antes de publicar.</p>
+        </form>
+      </section>
 
-                <div id="p2pInfoBox" class="neon-input rounded-2xl px-3 py-2 flex items-center justify-between gap-2 text-[11px] font-mono">
-                    <span class="text-slate-500 dark:text-slate-400">Binance P2P (config):</span>
-                    <span id="p2pDetalleTexto" class="font-bold text-slate-800 dark:text-slate-200 truncate">Sin datos P2P aún</span>
-                </div>
-            </section>
+      <section id="historial" class="mt-6">
+        <div class="section-title">
+          <div><div class="section-kicker">Consulta y recuperación</div><h2>Historial de publicaciones</h2></div>
+          <i class="fa-solid fa-clock-rotate-left text-violet-400"></i>
+        </div>
+        <div class="glass panel space-y-3">
+          <p class="hint">Selecciona una fecha guardada para cargar sus valores en el formulario y revisarlos o volver a publicarlos.</p>
+          <button type="button" onclick="document.getElementById('selectorFechaGuardada').focus();document.getElementById('selectorFechaGuardada').scrollIntoView({behavior:'smooth',block:'center'})" class="secondary-btn w-full"><i class="fa-solid fa-calendar-check mr-2"></i>Ir al selector de fechas</button>
+          <div class="info-strip"><i class="fa-solid fa-circle-info mr-1 text-sky-400"></i>La sincronización de tasas e historial se mantiene en la misma base de datos Firebase del proyecto actual.</div>
+        </div>
+      </section>
 
-            <!-- Formulario para Actualizar / Editar Tasas por Fecha -->
-            <form id="formActualizarTasas" onsubmit="guardarTasasEnFirebase(event)" class="neon-card rounded-3xl p-4 sm:p-5 space-y-4">
-                <div class="flex items-center justify-between border-b border-slate-200/80 dark:border-white/10 pb-3">
-                    <div>
-                        <span class="text-[10px] font-mono font-extrabold uppercase tracking-wider text-blue-700 dark:text-blue-300">Control Manual y Edición</span>
-                        <h2 class="text-base font-black">Publicar o Editar Tasas (Bs.)</h2>
-                    </div>
-                    <button type="button" onclick="cargarValoresActualesEnInputs(true)" class="px-2.5 py-1.5 rounded-xl neon-input text-[11px] font-bold text-purple-700 dark:text-purple-300 cursor-pointer" title="Restaurar valores actuales de Firebase">
-                        <i class="fa-solid fa-rotate-left mr-1"></i>Cargar actuales
-                    </button>
-                </div>
+      <section class="mt-6">
+        <div class="glass panel">
+          <div class="flex items-center gap-3">
+            <div class="heading-icon"><i class="fa-solid fa-satellite-dish"></i></div>
+            <div class="min-w-0"><h3 class="text-xs font-black">Conexión de datos</h3><p class="hint">Estado en vivo de Realtime Database</p></div>
+            <span class="ml-auto live-dot"></span>
+          </div>
+          <p class="hint mt-3">Este panel conserva la conexión y las rutas de datos existentes. El envío de notificaciones push requiere configurar un servicio seguro de servidor/Cloud Functions; no se envían desde este formulario de tasas.</p>
+        </div>
+      </section>
+    </main>
 
-                <!-- Cargar una fecha existente del historial para editar -->
-                <div class="neon-input rounded-2xl p-3 space-y-2">
-                    <label for="selectFechaHistorial" class="block text-[11px] font-mono font-extrabold text-purple-700 dark:text-purple-300">
-                        Editar fecha guardada en historialTasas
-                    </label>
-                    <div class="flex gap-2">
-                        <select id="selectFechaHistorial" onchange="cargarFechaHistorialEnFormulario(this.value)" class="flex-1 neon-input rounded-xl px-3 py-2 font-mono text-xs font-bold">
-                            <option value="">-- Nueva fecha o salto en calendario --</option>
-                        </select>
-                        <button type="button" onclick="cargarFechaHistorialEnFormulario(document.getElementById('selectFechaHistorial')?.value || '')" class="px-3 py-2 rounded-xl neon-input text-xs font-bold cursor-pointer" title="Cargar fecha seleccionada">
-                            <i class="fa-solid fa-folder-open"></i>
-                        </button>
-                    </div>
-                </div>
-
-                <div class="space-y-3">
-                    <div>
-                        <label for="inputTasaBcv" class="block text-xs font-extrabold text-slate-700 dark:text-slate-200 mb-1">
-                            Dólar BCV (tasaBcv)
-                        </label>
-                        <div class="relative">
-                            <input type="text" inputmode="decimal" id="inputTasaBcv" required placeholder="919.82" class="w-full neon-input rounded-2xl px-3.5 py-2.5 pr-12 font-mono text-base font-extrabold">
-                            <span class="absolute right-3.5 top-1/2 -translate-y-1/2 text-xs font-mono font-bold text-slate-400">Bs.</span>
-                        </div>
-                    </div>
-
-                    <div>
-                        <label for="inputTasaEur" class="block text-xs font-extrabold text-slate-700 dark:text-slate-200 mb-1">
-                            Euro BCV (tasaEuroBcv)
-                        </label>
-                        <div class="relative">
-                            <input type="text" inputmode="decimal" id="inputTasaEur" required placeholder="1011.18" class="w-full neon-input rounded-2xl px-3.5 py-2.5 pr-12 font-mono text-base font-extrabold">
-                            <span class="absolute right-3.5 top-1/2 -translate-y-1/2 text-xs font-mono font-bold text-slate-400">Bs.</span>
-                        </div>
-                    </div>
-
-                    <div>
-                        <div class="flex items-center justify-between mb-1">
-                            <label for="inputTasaUsdt" class="text-xs font-extrabold text-slate-700 dark:text-slate-200">
-                                USDT (tasaUsdt)
-                            </label>
-                            <span class="text-[10px] font-mono text-slate-500 dark:text-slate-400">También se sincroniza cada hora vía P2P</span>
-                        </div>
-                        <div class="relative">
-                            <input type="text" inputmode="decimal" id="inputTasaUsdt" required placeholder="1076.91" class="w-full neon-input rounded-2xl px-3.5 py-2.5 pr-12 font-mono text-base font-extrabold">
-                            <span class="absolute right-3.5 top-1/2 -translate-y-1/2 text-xs font-mono font-bold text-slate-400">Bs.</span>
-                        </div>
-                    </div>
-
-                    <div>
-                        <label for="inputFechaHistorial" class="block text-xs font-extrabold text-slate-700 dark:text-slate-200 mb-1">
-                            Fecha valor (YYYY-MM-DD • Salta feriados o fines de semana)
-                        </label>
-                        <input type="date" id="inputFechaHistorial" required class="w-full neon-input rounded-2xl px-3.5 py-2.5 font-mono text-xs font-bold">
-                    </div>
-                </div>
-
-                <div class="space-y-2 pt-1">
-                    <label class="flex items-center gap-2.5 text-xs font-semibold text-slate-700 dark:text-slate-300 cursor-pointer">
-                        <input type="checkbox" id="chkGuardarHistorial" checked class="w-4 h-4 rounded accent-purple-600">
-                        <span>Guardar / editar en <code class="font-mono text-[11px] bg-slate-200/80 dark:bg-white/10 px-1.5 py-0.5 rounded">historialTasas</code> con la fecha elegida</span>
-                    </label>
-
-                    <label class="flex items-center gap-2.5 text-xs font-semibold text-slate-700 dark:text-slate-300 cursor-pointer">
-                        <input type="checkbox" id="chkActualizarConfigVigente" checked class="w-4 h-4 rounded accent-blue-600">
-                        <span>Actualizar también <code class="font-mono text-[11px] bg-slate-200/80 dark:bg-white/10 px-1.5 py-0.5 rounded">config</code> como tasa vigente</span>
-                    </label>
-                </div>
-
-                <button type="submit" id="btnGuardarTasas" class="w-full py-3.5 px-5 rounded-2xl neon-btn text-white text-sm font-extrabold flex items-center justify-center gap-2 cursor-pointer">
-                    <i id="btnGuardarIcon" class="fa-solid fa-cloud-arrow-up"></i>
-                    <span id="btnGuardarTexto">Guardar y Sincronizar en yimmi-kambio-v2</span>
-                </button>
-            </form>
-        </main>
-
-        <!-- Pie -->
-        <footer class="text-center text-[11px] font-mono text-slate-500 dark:text-slate-400 pt-2">
-            Yimmi Kambio Admin · Conectado a yimmi-kambio-v2
-        </footer>
-    </div>
+    <footer class="text-center pt-6 pb-2">
+      <div class="eyebrow muted">Yimmi Kambio Admin · Futuro Ahora</div>
+      <div class="hint mt-1">Control Center · Gestión segura y sincronizada</div>
+    </footer>
+  </div>
 
     <script type="module">
         import { initializeApp } from "https://www.gstatic.com/firebasejs/13.3.0/firebase-app.js";
@@ -280,24 +291,20 @@
         const app = initializeApp(firebaseConfig);
         const db = getDatabase(app);
 
-        let ultimasTasas = {
+        let tasasActuales = {
             tasaBcv: 919.82,
             tasaEuroBcv: 1011.18,
-            tasaUsdt: 1076.91
+            tasaUsdt: 1076.91,
+            fechaValorVigente: ''
         };
 
-        let historialCache = {
-            usd: {},
-            eur: {},
-            usdt: {}
-        };
-
+        let historialMap = { usd: {}, eur: {}, usdt: {} };
         let toastTimer = null;
 
         function mostrarToast(msg, ok = true) {
-            const box = document.getElementById('adminToast');
-            const text = document.getElementById('adminToastMsg');
-            const icon = document.getElementById('adminToastIcon');
+            const box = document.getElementById('toastBox');
+            const text = document.getElementById('toastText');
+            const icon = document.getElementById('toastIcon');
             if (!box || !text || !icon) return;
             text.textContent = msg;
             icon.className = ok
@@ -312,20 +319,18 @@
             }, 2800);
         }
 
-        function formatComa(num) {
+        function formatBs(num) {
             const n = Number(num);
             if (!Number.isFinite(n)) return '0,00';
             return n.toLocaleString('es-VE', { minimumFractionDigits: 2, maximumFractionDigits: 4 });
         }
 
-        function parseNum(raw) {
+        function parseNumero(raw) {
             if (raw === undefined || raw === null) return NaN;
             let s = String(raw).trim().replace(/\s+/g, '').replace(/[^0-9.,-]/g, '');
             if (!s) return NaN;
-
             const lastComma = s.lastIndexOf(',');
             const lastDot = s.lastIndexOf('.');
-
             if (lastComma > -1 && lastDot > -1) {
                 if (lastComma > lastDot) {
                     s = s.replace(/\./g, '').replace(',', '.');
@@ -341,27 +346,26 @@
                     s = parts.join('') + '.' + dec;
                 }
             }
-
-            const parsed = Number(s);
-            return Number.isFinite(parsed) ? parsed : NaN;
+            const val = Number(s);
+            return Number.isFinite(val) ? val : NaN;
         }
 
-        function redondearTasa(num) {
+        function redondear(num) {
             return Math.round(num * 10000) / 10000;
         }
 
-        // Fecha YYYY-MM-DD en hora de Venezuela (America/Caracas) para evitar saltos por UTC
-        function obtenerFechaVenezuelaISO(dateObj = new Date()) {
+        function obtenerFechaVenezuelaISO(offsetDias = 0) {
+            const base = new Date(Date.now() + offsetDias * 86400000);
             return new Intl.DateTimeFormat('en-CA', {
                 timeZone: 'America/Caracas',
                 year: 'numeric',
                 month: '2-digit',
                 day: '2-digit'
-            }).format(dateObj);
+            }).format(base);
         }
 
-        function setEstadoConexion(estado) {
-            const badge = document.getElementById('dbStatusBadge');
+        function setDbBadge(estado) {
+            const badge = document.getElementById('dbBadge');
             if (!badge) return;
             if (estado === 'live') {
                 badge.className = 'inline-flex items-center gap-1 px-2 py-1 rounded-full bg-emerald-500/15 border border-emerald-400/40 text-emerald-700 dark:text-emerald-300 text-[10px] font-mono font-bold';
@@ -375,247 +379,216 @@
             }
         }
 
-        window.toggleDarkAdmin = function() {
-            const html = document.documentElement;
-            const esOscuro = html.classList.toggle('dark');
-            localStorage.setItem('yimmi_kambio_admin_theme', esOscuro ? 'dark' : 'light');
-            actualizarIconoDark();
+        window.toggleTemaAdmin = function() {
+            const osc = document.documentElement.classList.toggle('dark');
+            localStorage.setItem('yimmi_kambio_nuevo_admin_theme', osc ? 'dark' : 'light');
+            actualizarIconoTema();
         };
 
-        function actualizarIconoDark() {
-            const icon = document.getElementById('iconDarkAdmin');
-            const esOscuro = document.documentElement.classList.contains('dark');
+        function actualizarIconoTema() {
+            const icon = document.getElementById('iconoTemaAdmin');
             if (icon) {
-                icon.className = esOscuro
+                icon.className = document.documentElement.classList.contains('dark')
                     ? 'fa-solid fa-sun text-amber-300'
                     : 'fa-solid fa-moon text-purple-600';
             }
         }
 
-        window.cargarValoresActualesEnInputs = function(forzar = true) {
-            const bcvEl = document.getElementById('inputTasaBcv');
-            const eurEl = document.getElementById('inputTasaEur');
-            const usdtEl = document.getElementById('inputTasaUsdt');
-
-            if (bcvEl && (forzar || document.activeElement !== bcvEl)) {
-                bcvEl.value = String(redondearTasa(ultimasTasas.tasaBcv));
-            }
-            if (eurEl && (forzar || document.activeElement !== eurEl)) {
-                eurEl.value = String(redondearTasa(ultimasTasas.tasaEuroBcv));
-            }
-            if (usdtEl && (forzar || document.activeElement !== usdtEl)) {
-                usdtEl.value = String(redondearTasa(ultimasTasas.tasaUsdt));
-            }
+        window.fijarFechaRelativa = function(offsetDias) {
+            const f = obtenerFechaVenezuelaISO(offsetDias);
+            const inp = document.getElementById('fechaValorInput');
+            if (inp) inp.value = f;
+            const sel = document.getElementById('selectorFechaGuardada');
+            if (sel) sel.value = '';
+            const chkCfg = document.getElementById('chkConfig');
+            if (chkCfg) chkCfg.checked = f >= obtenerFechaVenezuelaISO(0);
+            mostrarToast(`Fecha seleccionada: ${f}`, true);
         };
 
-        window.cargarFechaHistorialEnFormulario = function(fechaKey) {
+        window.cargarTasasActualesForm = function() {
+            const bcv = document.getElementById('campoBcv');
+            const eur = document.getElementById('campoEur');
+            const usdt = document.getElementById('campoUsdt');
+            if (bcv) bcv.value = String(redondear(tasasActuales.tasaBcv));
+            if (eur) eur.value = String(redondear(tasasActuales.tasaEuroBcv));
+            if (usdt) usdt.value = String(redondear(tasasActuales.tasaUsdt));
+            mostrarToast('Valores actuales cargados', true);
+        };
+
+        window.seleccionarFechaGuardada = function(fechaKey) {
             if (!fechaKey) return;
-            const fechaInput = document.getElementById('inputFechaHistorial');
-            if (fechaInput) fechaInput.value = fechaKey;
+            const inp = document.getElementById('fechaValorInput');
+            if (inp) inp.value = fechaKey;
 
-            const usdEntry = historialCache.usd?.[fechaKey];
-            const eurEntry = historialCache.eur?.[fechaKey];
-            const usdtEntry = historialCache.usdt?.[fechaKey];
+            const u = historialMap.usd?.[fechaKey];
+            const e = historialMap.eur?.[fechaKey];
+            const t = historialMap.usdt?.[fechaKey];
 
-            const bcvEl = document.getElementById('inputTasaBcv');
-            const eurEl = document.getElementById('inputTasaEur');
-            const usdtEl = document.getElementById('inputTasaUsdt');
+            const bcv = document.getElementById('campoBcv');
+            const eur = document.getElementById('campoEur');
+            const usdt = document.getElementById('campoUsdt');
 
-            if (bcvEl && usdEntry && Number.isFinite(Number(usdEntry.valor))) {
-                bcvEl.value = String(redondearTasa(Number(usdEntry.valor)));
-            }
-            if (eurEl && eurEntry && Number.isFinite(Number(eurEntry.valor))) {
-                eurEl.value = String(redondearTasa(Number(eurEntry.valor)));
-            }
-            if (usdtEl && usdtEntry && Number.isFinite(Number(usdtEntry.valor))) {
-                usdtEl.value = String(redondearTasa(Number(usdtEntry.valor)));
-            }
+            if (bcv && u && Number.isFinite(Number(u.valor))) bcv.value = String(redondear(Number(u.valor)));
+            if (eur && e && Number.isFinite(Number(e.valor))) eur.value = String(redondear(Number(e.valor)));
+            if (usdt && t && Number.isFinite(Number(t.valor))) usdt.value = String(redondear(Number(t.valor)));
 
-            mostrarToast(`Editando fecha ${fechaKey}`, true);
+            const chkCfg = document.getElementById('chkConfig');
+            if (chkCfg) chkCfg.checked = fechaKey >= obtenerFechaVenezuelaISO(0);
+            mostrarToast(`Cargada fecha ${fechaKey}`, true);
         };
 
-        function refrescarSelectorFechasHistorial() {
-            const sel = document.getElementById('selectFechaHistorial');
-            if (!sel) return;
-            const currentVal = sel.value;
+        function actualizarListaFechas() {
+            const sel = document.getElementById('selectorFechaGuardada');
+            const totalEl = document.getElementById('totalFechasHistorial');
             const fechasSet = new Set([
-                ...Object.keys(historialCache.usd || {}),
-                ...Object.keys(historialCache.eur || {}),
-                ...Object.keys(historialCache.usdt || {})
+                ...Object.keys(historialMap.usd || {}),
+                ...Object.keys(historialMap.eur || {}),
+                ...Object.keys(historialMap.usdt || {})
             ]);
-            const fechasOrdenadas = [...fechasSet]
-                .filter(f => /^\d{4}-\d{2}-\d{2}$/.test(f))
-                .sort((a, b) => b.localeCompare(a));
-
+            const ordenadas = [...fechasSet].filter(f => /^\d{4}-\d{2}-\d{2}$/.test(f)).sort((a, b) => b.localeCompare(a));
+            if (totalEl) totalEl.textContent = String(ordenadas.length);
+            if (!sel) return;
+            const prev = sel.value;
             sel.innerHTML = [
-                '<option value="">-- Nueva fecha o salto en calendario --</option>',
-                ...fechasOrdenadas.map(f => `<option value="${f}">${f}</option>`)
+                '<option value="">-- Cargar fecha ya guardada en historial --</option>',
+                ...ordenadas.map(f => `<option value="${f}">${f}</option>`)
             ].join('');
-
-            if (currentVal && fechasOrdenadas.includes(currentVal)) {
-                sel.value = currentVal;
-            }
+            if (prev && ordenadas.includes(prev)) sel.value = prev;
         }
 
-        window.guardarTasasEnFirebase = async function(event) {
-            event.preventDefault();
-            const bcv = parseNum(document.getElementById('inputTasaBcv')?.value);
-            const eur = parseNum(document.getElementById('inputTasaEur')?.value);
-            const usdt = parseNum(document.getElementById('inputTasaUsdt')?.value);
-            const fechaHist = (document.getElementById('inputFechaHistorial')?.value || obtenerFechaVenezuelaISO()).trim();
-            const guardarHist = Boolean(document.getElementById('chkGuardarHistorial')?.checked);
-            const actualizarConfig = Boolean(document.getElementById('chkActualizarConfigVigente')?.checked);
+        window.publicarTasasAdmin = async function(ev) {
+            ev.preventDefault();
+            const bcv = parseNumero(document.getElementById('campoBcv')?.value);
+            const eur = parseNumero(document.getElementById('campoEur')?.value);
+            const usdt = parseNumero(document.getElementById('campoUsdt')?.value);
+            const fecha = (document.getElementById('fechaValorInput')?.value || obtenerFechaVenezuelaISO(0)).trim();
+            const guardarHist = Boolean(document.getElementById('chkHistorial')?.checked);
+            const guardarCfg = Boolean(document.getElementById('chkConfig')?.checked);
 
-            if (!/^\d{4}-\d{2}-\d{2}$/.test(fechaHist)) {
-                mostrarToast('Selecciona una fecha válida (YYYY-MM-DD).', false);
+            if (!/^\d{4}-\d{2}-\d{2}$/.test(fecha)) {
+                mostrarToast('Ingresa una fecha válida (YYYY-MM-DD)', false);
                 return;
             }
-
             if (!Number.isFinite(bcv) || bcv <= 0 || !Number.isFinite(eur) || eur <= 0 || !Number.isFinite(usdt) || usdt <= 0) {
-                mostrarToast('Ingresa valores numéricos mayores a 0 en todas las tasas.', false);
+                mostrarToast('Todos los montos deben ser mayores a 0', false);
+                return;
+            }
+            if (!guardarHist && !guardarCfg) {
+                mostrarToast('Marca historialTasas o config', false);
                 return;
             }
 
-            if (!guardarHist && !actualizarConfig) {
-                mostrarToast('Marca al menos una opción: historialTasas o config vigente.', false);
-                return;
-            }
-
-            const btn = document.getElementById('btnGuardarTasas');
-            const btnIcon = document.getElementById('btnGuardarIcon');
-            const btnTexto = document.getElementById('btnGuardarTexto');
-
+            const btn = document.getElementById('btnPublicar');
+            const icon = document.getElementById('iconoPublicar');
+            const txt = document.getElementById('textoPublicar');
             if (btn) btn.disabled = true;
-            if (btnIcon) btnIcon.className = 'fa-solid fa-spinner fa-spin';
-            if (btnTexto) btnTexto.textContent = 'Sincronizando...';
+            if (icon) icon.className = 'fa-solid fa-spinner fa-spin';
+            if (txt) txt.textContent = 'Sincronizando...';
 
             try {
                 const ahoraIso = new Date().toISOString();
-                const valBcv = redondearTasa(bcv);
-                const valEur = redondearTasa(eur);
-                const valUsdt = redondearTasa(usdt);
-                const tareas = [];
+                const vBcv = redondear(bcv);
+                const vEur = redondear(eur);
+                const vUsdt = redondear(usdt);
+                const ops = [];
 
-                if (actualizarConfig) {
-                    tareas.push(update(ref(db, 'config'), {
-                        tasaBcv: valBcv,
-                        tasaEuroBcv: valEur,
-                        tasaUsdt: valUsdt,
-                        fechaValorVigente: fechaHist,
+                if (guardarCfg) {
+                    ops.push(update(ref(db, 'config'), {
+                        tasaBcv: vBcv,
+                        tasaEuroBcv: vEur,
+                        tasaUsdt: vUsdt,
+                        fechaValorVigente: fecha,
                         actualizadoManualEn: ahoraIso
                     }));
                 }
 
                 if (guardarHist) {
-                    tareas.push(
-                        set(ref(db, `historialTasas/usd/${fechaHist}`), {
-                            fecha: fechaHist,
-                            fechaValor: fechaHist,
-                            valor: valBcv,
+                    ops.push(
+                        set(ref(db, `historialTasas/usd/${fecha}`), {
+                            fecha,
+                            fechaValor: fecha,
+                            valor: vBcv,
                             actualizadoEn: ahoraIso
                         }),
-                        set(ref(db, `historialTasas/eur/${fechaHist}`), {
-                            fecha: fechaHist,
-                            fechaValor: fechaHist,
-                            valor: valEur,
+                        set(ref(db, `historialTasas/eur/${fecha}`), {
+                            fecha,
+                            fechaValor: fecha,
+                            valor: vEur,
                             actualizadoEn: ahoraIso
                         }),
-                        set(ref(db, `historialTasas/usdt/${fechaHist}`), {
-                            fecha: fechaHist,
-                            fechaValor: fechaHist,
-                            valor: valUsdt,
+                        set(ref(db, `historialTasas/usdt/${fecha}`), {
+                            fecha,
+                            fechaValor: fecha,
+                            valor: vUsdt,
                             actualizadoEn: ahoraIso
                         })
                     );
                 }
 
-                await Promise.all(tareas);
-                mostrarToast(`Guardado y sincronizado (${fechaHist})`, true);
+                await Promise.all(ops);
+                const sel = document.getElementById('selectorFechaGuardada');
+                if (sel) sel.value = '';
+                mostrarToast(`Sincronizado (${fecha})`, true);
             } catch (err) {
-                console.error(err);
-                setEstadoConexion('error');
-                mostrarToast('Error al guardar en Firebase: ' + (err?.message || 'revisa conexión/reglas'), false);
+                setDbBadge('error');
+                mostrarToast('Error al sincronizar: ' + (err?.message || 'revisa conexión'), false);
             } finally {
                 if (btn) btn.disabled = false;
-                if (btnIcon) btnIcon.className = 'fa-solid fa-cloud-arrow-up';
-                if (btnTexto) btnTexto.textContent = 'Guardar y Sincronizar en yimmi-kambio-v2';
+                if (icon) icon.className = 'fa-solid fa-cloud-arrow-up';
+                if (txt) txt.textContent = 'Guardar y Sincronizar ahora';
             }
         };
 
         onValue(ref(db, 'config'), (snap) => {
-            setEstadoConexion('live');
-
+            setDbBadge('live');
             if (!snap.exists()) return;
             const val = snap.val();
             if (!val || typeof val !== 'object') return;
 
-            const bcv = Number(val.tasaBcv);
-            const eur = Number(val.tasaEuroBcv);
-            const usdt = Number(val.tasaUsdt);
+            if (Number.isFinite(Number(val.tasaBcv)) && Number(val.tasaBcv) > 0) tasasActuales.tasaBcv = Number(val.tasaBcv);
+            if (Number.isFinite(Number(val.tasaEuroBcv)) && Number(val.tasaEuroBcv) > 0) tasasActuales.tasaEuroBcv = Number(val.tasaEuroBcv);
+            if (Number.isFinite(Number(val.tasaUsdt)) && Number(val.tasaUsdt) > 0) tasasActuales.tasaUsdt = Number(val.tasaUsdt);
+            tasasActuales.fechaValorVigente = String(val.fechaValorVigente || '').trim();
 
-            if (Number.isFinite(bcv) && bcv > 0) ultimasTasas.tasaBcv = bcv;
-            if (Number.isFinite(eur) && eur > 0) ultimasTasas.tasaEuroBcv = eur;
-            if (Number.isFinite(usdt) && usdt > 0) ultimasTasas.tasaUsdt = usdt;
+            const elBcv = document.getElementById('actualBcv');
+            const elEur = document.getElementById('actualEur');
+            const elUsdt = document.getElementById('actualUsdt');
+            const elFec = document.getElementById('actualFechaConfig');
+            const elHora = document.getElementById('horaSyncAdmin');
 
-            const elBcv = document.getElementById('liveTasaBcv');
-            const elEur = document.getElementById('liveTasaEur');
-            const elUsdt = document.getElementById('liveTasaUsdt');
-            const elSync = document.getElementById('adminLastSync');
-            const elP2p = document.getElementById('p2pDetalleTexto');
-
-            if (elBcv) elBcv.textContent = formatComa(ultimasTasas.tasaBcv);
-            if (elEur) elEur.textContent = formatComa(ultimasTasas.tasaEuroBcv);
-            if (elUsdt) elUsdt.textContent = formatComa(ultimasTasas.tasaUsdt);
-            if (elSync) {
-                elSync.textContent = new Date().toLocaleTimeString('es-VE', { hour: '2-digit', minute: '2-digit' });
-            }
-
-            if (elP2p) {
-                const compra = Number(val.usdtCompra);
-                const venta = Number(val.usdtVenta);
-                if (Number.isFinite(compra) || Number.isFinite(venta)) {
-                    const txtCompra = Number.isFinite(compra) ? `Compra ${formatComa(compra)}` : '';
-                    const txtVenta = Number.isFinite(venta) ? `Venta ${formatComa(venta)}` : '';
-                    elP2p.textContent = [txtCompra, txtVenta].filter(Boolean).join(' · ');
-                } else {
-                    elP2p.textContent = 'Esperando ciclo P2P en config';
-                }
-            }
-
-            const inputBcv = document.getElementById('inputTasaBcv');
-            const inputEur = document.getElementById('inputTasaEur');
-            const inputUsdt = document.getElementById('inputTasaUsdt');
-            if (inputBcv && !inputBcv.value) inputBcv.value = String(redondearTasa(ultimasTasas.tasaBcv));
-            if (inputEur && !inputEur.value) inputEur.value = String(redondearTasa(ultimasTasas.tasaEuroBcv));
-            if (inputUsdt && !inputUsdt.value) inputUsdt.value = String(redondearTasa(ultimasTasas.tasaUsdt));
+            if (elBcv) elBcv.textContent = formatBs(tasasActuales.tasaBcv);
+            if (elEur) elEur.textContent = formatBs(tasasActuales.tasaEuroBcv);
+            if (elUsdt) elUsdt.textContent = formatBs(tasasActuales.tasaUsdt);
+            if (elFec) elFec.textContent = tasasActuales.fechaValorVigente || '--';
+            if (elHora) elHora.textContent = new Date().toLocaleTimeString('es-VE', { hour: '2-digit', minute: '2-digit' });
         }, () => {
-            setEstadoConexion('error');
+            setDbBadge('error');
         });
 
         onValue(ref(db, 'historialTasas'), (snap) => {
             const raw = snap.exists() ? snap.val() : {};
-            historialCache = {
+            historialMap = {
                 usd: raw?.usd && typeof raw.usd === 'object' ? raw.usd : {},
                 eur: raw?.eur && typeof raw.eur === 'object' ? raw.eur : {},
                 usdt: raw?.usdt && typeof raw.usdt === 'object' ? raw.usdt : {}
             };
-            refrescarSelectorFechasHistorial();
+            actualizarListaFechas();
         });
 
         window.addEventListener('DOMContentLoaded', () => {
-            const temaGuardado = localStorage.getItem('yimmi_kambio_admin_theme');
-            if (temaGuardado === 'light') {
+            const guardado = localStorage.getItem('yimmi_kambio_nuevo_admin_theme');
+            if (guardado === 'light') {
                 document.documentElement.classList.remove('dark');
             } else {
                 document.documentElement.classList.add('dark');
             }
-            actualizarIconoDark();
+            actualizarIconoTema();
 
-            const fechaInput = document.getElementById('inputFechaHistorial');
-            if (fechaInput && !fechaInput.value) {
-                fechaInput.value = obtenerFechaVenezuelaISO();
+            const fechaInp = document.getElementById('fechaValorInput');
+            if (fechaInp && !fechaInp.value) {
+                fechaInp.value = obtenerFechaVenezuelaISO(0);
             }
-            cargarValoresActualesEnInputs(true);
+            cargarTasasActualesForm();
         });
     </script>
 </body>
